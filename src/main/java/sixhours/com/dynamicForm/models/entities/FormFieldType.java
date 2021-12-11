@@ -1,6 +1,6 @@
 package sixhours.com.dynamicForm.models.entities;
 
-import sixhours.com.dynamicForm.enums.FormStatusEnum;
+import sixhours.com.dynamicForm.enums.FormFieldTypeEnum;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,18 +8,18 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class FormStatus {
+public class FormFieldType {
     @Id
     @GeneratedValue
     private Long id;
 
-    private FormStatusEnum name;
+    private FormFieldTypeEnum name;
 
-    FormStatus() {
+    public FormFieldType(FormFieldTypeEnum name) {
+        this.name = name;
     }
 
-    public FormStatus(FormStatusEnum name) {
-        this.name = name;
+    public FormFieldType() {
     }
 
     public Long getId() {
@@ -30,11 +30,11 @@ public class FormStatus {
         this.id = id;
     }
 
-    public FormStatusEnum getName() {
+    public FormFieldTypeEnum getName() {
         return name;
     }
 
-    public void setName(FormStatusEnum name) {
+    public void setName(FormFieldTypeEnum name) {
         this.name = name;
     }
 
@@ -42,8 +42,8 @@ public class FormStatus {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        FormStatus that = (FormStatus) o;
-        return id.equals(that.id) && name.equals(that.name);
+        FormFieldType fieldType = (FormFieldType) o;
+        return id.equals(fieldType.id) && name.equals(fieldType.name);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class FormStatus {
 
     @Override
     public String toString() {
-        return "FormStatus{" +
+        return "FieldType{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

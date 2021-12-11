@@ -7,8 +7,6 @@ import sixhours.com.dynamicForm.models.entities.FormStatus;
 import sixhours.com.dynamicForm.models.repositories.FormStatusRepository;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @RestController
 public class FormStatusController {
@@ -17,7 +15,6 @@ public class FormStatusController {
     public FormStatusController(FormStatusRepository repository) {
         this.repository = repository;
     }
-
 
     // Aggregate root
     // tag::get-aggregate-root[]
