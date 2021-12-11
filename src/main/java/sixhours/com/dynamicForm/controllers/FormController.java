@@ -32,15 +32,8 @@ public class FormController {
                 .orElseThrow(() -> new RuntimeException("Could not found form field type " + id));
     }
 
-//    @PostMapping("/forms")
-//    Form newForm(@RequestBody Form newForm) {
-//        System.out.println(newForm);
-//        return formRepository.save(newForm);
-//    }
-
     @PostMapping("/forms")
     Form newForm(@RequestBody Form newForm) {
-        log.info(newForm.toString());
         return formRepository.save(newForm);
     }
 }
