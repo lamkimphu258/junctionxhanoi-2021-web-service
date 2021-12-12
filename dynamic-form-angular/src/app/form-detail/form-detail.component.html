@@ -1,0 +1,23 @@
+<div id="form-detail">
+    <h3>Overview > Form</h3>
+    <div id="form-detail-header">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Form name" aria-label="Form name">
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Form description" aria-label="Form desc">
+        </div>
+    </div>
+    <div id="form-detail-body" class="row">
+        <div #parent *ngFor="let inputComponent of inputComponents; index as index" class="col-12 mb-3">
+            <app-form-wrapper (onChangeWidth)="onChangeWidth($event, parent)" [index]="index"></app-form-wrapper>
+        </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center mb-3">
+        <button type="button" class="btn btn-outline-secondary" (click)="addComponent()">Add more field</button>
+    </div>
+    <div>
+        <button style="width: 186px;" type="button" class="btn btn-secondary float-end ms-3">Publish</button>
+        <button style="width: 186px;" type="button" class="btn btn-outline-secondary float-end">Save</button>
+    </div>
+</div>

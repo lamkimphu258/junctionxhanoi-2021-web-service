@@ -1,0 +1,95 @@
+<div id="form-wrapper" class="row">
+    <div class="col-9 mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Label" aria-label="Form name">
+        </div>
+    </div>
+    <div class="col-3 mb-3">
+        <div class="input-group">
+            <select [(ngModel)]="type" class="form-select" aria-label="Default select example">
+                <option value="1">Checkbox</option>
+                <option value="2">Number</option>
+                <option value="3">Dropdown</option>
+                <option value="4">Radio</option>
+                <option value="5">Text field</option>
+                <option value="6">Date</option>
+                <option value="7">Phone</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-12 mb-3">
+        <!-- Checkbox -->
+        <div *ngIf="type=='1'">
+            <app-form-checkbox *ngFor="let option of options" (onAdd)="addOption()"></app-form-checkbox>
+        </div>
+        <!-- Number -->
+        <div *ngIf="type=='2'">
+            <app-form-number></app-form-number>
+        </div>
+        <!-- Dropdown -->
+        <div *ngIf="type=='3'">
+            <app-form-dropdown *ngFor="let option of options" (onAdd)="addOption()"></app-form-dropdown>
+        </div>
+        <!-- Radio -->
+        <div *ngIf="type=='4'">
+            <app-form-radio *ngFor="let option of options" (onAdd)="addOption()"></app-form-radio>
+        </div>
+        <!-- Text field -->
+        <div *ngIf="type=='5'">
+            <app-form-text-field></app-form-text-field>
+        </div>
+        <!-- Date -->
+        <div *ngIf="type=='6'">
+            <app-form-date></app-form-date>
+        </div>
+        <!-- Phone -->
+    </div>
+    <div class="col-12 mb-3">
+        <div class="form-check-inline">
+            <label>Field width</label>
+        </div>
+        <form action="">
+            <div class="form-check form-check-inline">
+                <input #widthRadio1 (change)="changeWidth(widthRadio1)" class="form-check-input" type="radio"
+                    name="inlineRadioOptions" [id]="'component' + index + 'width50'" value="50%">
+                <label class="form-check-label" [for]="'component' + index + 'width50'">50%</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input #widthRadio2 (change)="changeWidth(widthRadio2)" checked class="form-check-input" type="radio"
+                    name="inlineRadioOptions" [id]="'component' + index + 'width100'" value="100%">
+                <label class="form-check-label" [for]="'component' + index + 'width100'">100%</label>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 mb-3">
+        <hr class="m-0">
+    </div>
+    <div class="col-12 d-flex">
+        <div class="form-check form-switch form-check-inline">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Required</label>
+        </div>
+        <div id="functional-icon-wrapper">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                <line x1="10" y1="11" x2="10" y2="17"></line>
+                <line x1="14" y1="11" x2="14" y2="17"></line>
+            </svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </div>
+    </div>
+</div>
